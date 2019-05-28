@@ -1,0 +1,12 @@
+<h1>Quotes</h1>
+
+<% @quotes.each do |quote| %>
+  <h2> <%=  quote.content %> </h2>
+  <p> <%= link_to "-" + quote.book.author.name, author_path(quote.book.author) %>
+      <%= form_tag quote, method: "edit" do %>
+        <%= submit_tag "Edit quote" %>
+       <% end %>
+     <%= form_tag quote, method: "delete " do %>
+       <%= submit_tag "Delete quote" %>
+      <% end %></p>
+<% end %>

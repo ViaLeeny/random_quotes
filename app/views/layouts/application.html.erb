@@ -13,25 +13,33 @@
 
    <link rel="stylesheet" href= "https://cdnjs.cloudflare.com/ajax/libs/milligram/1.3.0/milligram.css">
    <style>
-      h1   {font-size: 30px}
+      h1   {font-size: 30px; text-align: center}
+      h2   {font-size: 25px}
       h3   {font-size: 20px}
       h4   {font-size: 15px}
-      h6   {font-size: 12px}
+      h5   {font-size: 12px}
+      h6   {font-size: 8px}
    </style>
 </head>
 
 <body>
 
-  <h6><center>
-  <%= link_to "hi" %> |
-  <%= link_to "hello"%> |
-  <%= link_to "later"%> |
-  <%= link_to "adios"%> |s
-  <%= link_to "hola"%> |
-  <%= link_to "oi"%> </center></h6><br/><br/>
+  <h5><center>
+  <%= link_to "Quotes" , quotes_path %> |
+  <%= link_to "Authors", authors_path %> |
+  <%= link_to "Books", books_path %> |
+  <%= link_to "Topics", topics_path %> |
+  <%= link_to "New User", new_user_path %> |
+  <%= link_to "New Quote", new_quote_path %> |
+  <%= link_to "Random Quote", random_quote_path %>
 
 
-  <body>
+
+ </center></h5><br/><br/>
+
     <%= yield %>
+
+    <br/><br/><br/><br/><br/><br/><h6><center>  <%= link_to "New Author", new_author_path %> |
+    <%= link_to "New Book", new_book_path %>  </h6></center>
   </body>
 </html>

@@ -1,0 +1,18 @@
+<h1><%=@topic.name%></h1>
+
+<% if @topic.quotes.size > 0 %>
+<p><%= @topic.quotes.length %> quote(s) found</p>
+  <h3>Quotes:</h3>
+
+  <ul>
+    <% @topic.quotes.each do |quote| %>
+      <li>
+        <%= quote.content %>
+        <h4>From <%= link_to quote.book.title, book_path(quote.book) %> by
+        <%= link_to quote.book.author.name, author_path(quote.book.author) %></h4>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+    <h3>This topic has no quotes(</h3>
+<% end %>

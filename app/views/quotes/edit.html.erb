@@ -1,0 +1,11 @@
+<h1> Edit Quote </h1>
+
+<%= form_for @quote do |f| %>
+<%= f.label "Quote" %>
+<%= f.text_field :content %><br>
+<%= f.label :book_id %>
+<%= f.collection_select :book_id, Book.all, :id, :title %><br>
+<%= f.label :topic_id %>
+<%= f.collection_select :topic_id, Topic.all, :id, :name %><br>
+<%= f.submit %>
+<% end %>

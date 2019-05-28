@@ -1,0 +1,16 @@
+<h1><%=@author.name%></h1>
+
+  <% if @author.books.size > 0 %>
+  <p><%= @author.books.length %> book(s) found</p>
+    <h3>Books:</h3>
+
+    <ul>
+      <% @author.books.each do |book| %>
+        <li>
+          <%= link_to book.title, book_path(book) %>
+        </li>
+      <% end %>
+    </ul>
+  <% else %>
+      <h3>This author has no books</h3>
+  <% end %>
