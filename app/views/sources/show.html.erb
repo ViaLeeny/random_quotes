@@ -1,0 +1,15 @@
+<h1><%=@source.title%></h1>
+
+  <% if @source.quotes.size > 0 %>
+  <p><%= @source.quotes.length %> quote(s) found</p>
+    <h3>Quotes:</h3>
+
+    <ul>
+      <% @source.quotes.each do |quote| %>
+          <%= quote.content %><br/>
+          <p>-<%= link_to quote.source.author.name, author_path(quote.source.author) %></p>
+      <% end %>
+    </ul>
+  <% else %>
+      <h3>This source has no quotes</h3>
+  <% end %>

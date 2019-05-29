@@ -3,3 +3,8 @@
 <% @authors.each do |author| %>
   <h3> <%= link_to author.name, author_path(author) %></h3>
 <% end %>
+
+<h1>Top Authors</h1>
+<% @top_three.each do |author| %>
+  <h3> <%= link_to author.name, author_path(author) %></h3>
+<% end %>

@@ -1,0 +1,7 @@
+</br></br></br><h1> <%=@quote.content%> </h1>
+<h1> -<%=link_to @quote.source.author.name, author_path(@quote.source.author)%> </h1>
+<center><h4> from <%=link_to @quote.source.title, source_path(@quote.source)%> </h4></center>
+</br></br></br>
+<center>
+ <%= link_to "Create a New Quote", new_quote_path %>
+</center>

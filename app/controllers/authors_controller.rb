@@ -4,6 +4,8 @@ before_action :find_author, only: [:show]
 
   def index
     @authors = Author.all
+    @most_prolific =   Author.most_prolific
+    @top_three = Author.top_three
   end
 
   def show
@@ -28,5 +30,7 @@ private
   def author_params
      params.require(:author).permit(:name)
   end
+
+
 
 end

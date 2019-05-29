@@ -2,8 +2,12 @@
 
 one:
   title: MyString
+  type: 
+  link: MyString
   author_id: 1
 
 two:
   title: MyString
+  type: 
+  link: MyString
   author_id: 1

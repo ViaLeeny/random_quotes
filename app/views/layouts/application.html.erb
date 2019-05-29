@@ -19,15 +19,17 @@
       h4   {font-size: 15px}
       h5   {font-size: 12px}
       h6   {font-size: 8px}
+
+      .cancel {text-align: left}
    </style>
 </head>
 
 <body>
 
   <h5><center>
+  <%= link_to "Home" , home_path %> |
   <%= link_to "Quotes" , quotes_path %> |
   <%= link_to "Authors", authors_path %> |
-  <%= link_to "Books", books_path %> |
   <%= link_to "Topics", topics_path %> |
   <%= link_to "New User", new_user_path %> |
   <%= link_to "New Quote", new_quote_path %> |
@@ -37,9 +39,19 @@
 
  </center></h5><br/><br/>
 
+
+ <% if flash[:errors] %>
+ <ul>
+   <% flash[:errors].each do |e| %>
+       <li style="color: #beef  11*16 + 15*16 + 15*16 + 16*16 ;"><%= e %></li>
+   <% end %>
+ </ul>
+<% end %>
+
     <%= yield %>
 
-    <br/><br/><br/><br/><br/><br/><h6><center>  <%= link_to "New Author", new_author_path %> |
-    <%= link_to "New Book", new_book_path %>  </h6></center>
+
+    <br/><br/><br/><br/><br/><br/><h6><center><%= link_to "New Author", new_author_path %> |
+    <%= link_to "New Source", new_source_path %></h6></center>
   </body>
 </html>

@@ -8,11 +8,11 @@
     <% @topic.quotes.each do |quote| %>
       <li>
         <%= quote.content %>
-        <h4>From <%= link_to quote.book.title, book_path(quote.book) %> by
-        <%= link_to quote.book.author.name, author_path(quote.book.author) %></h4>
+        <h4>From <%= link_to quote.source.title, source_path(quote.source) %> by
+        <%= link_to quote.source.author.name, author_path(quote.source.author) %></h4>
       </li>
     <% end %>
   </ul>
 <% else %>
-    <h3>This topic has no quotes(</h3>
+    <h3>This topic has no quotes</h3>
 <% end %>
