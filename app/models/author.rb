@@ -18,4 +18,13 @@ end
 def self.top_three
   self.all.max_by(3){|author| author.quotes.length}
 end
+
+def self.all_sorted_by_authors
+  Author.all.sort do
+    |author_a, author_b|
+    author_b.name <=> author_a.name
+  end
+end
+
+
 end

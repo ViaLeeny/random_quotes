@@ -19,12 +19,34 @@
       h4   {font-size: 15px}
       h5   {font-size: 12px}
       h6   {font-size: 8px}
+      .all {display: grid;
+            grid-template-columns: 300px 300px 300px;
+            grid-template-rows: auto;
+            padding: 10px;
+            justify-content: center}
+      .quotes {border: 1px solid;
+              margin: 8px;
+              padding: 10px;
+              text-align: center;
+              border-radius: .4rem}
+      .authors {display: grid;
+            grid-template-columns: 175px 175px 175px;
+            grid-template-rows: auto;
+            padding: 10px;
+            justify-content: center}
+      .topics {display: grid;
+            grid-template-columns: 175px 175px 175px;
+            grid-template-rows: auto;
+            padding: 10px;
+            justify-content: center}
 
       .cancel {text-align: left}
    </style>
 </head>
 
 <body>
+
+<h6>  </h6>
 
   <h5><center>
   <%= link_to "Home" , home_path %> |
@@ -34,6 +56,7 @@
   <%= link_to "New User", new_user_path %> |
   <%= link_to "New Quote", new_quote_path %> |
   <%= link_to "Random Quote", random_quote_path %>
+  <%# <%= link_to current_user.user_name + "'s Account", user_path(current_user)%>
 
 
 

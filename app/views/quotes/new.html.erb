@@ -4,10 +4,10 @@
 <b><%= form_tag "/quotes" do %>
   Quote: <%= text_field_tag "quote" %><br>
   Author: <%= text_field_tag "author"%><br>
-  Source: <%= text_field_tag "source"%><br>
+  Source Type: <%= select_tag "source_type", options_for_select(@source_types) %><br>
+  Source Title: <%= text_field_tag "source"%><br>
   Link: <%= text_field_tag "link"%><br>
   Topic: <%= text_field_tag "topic" %><br>
-  Source Type: <%= select_tag "source_type", options_for_select(@source_types) %><br>
   <%= submit_tag "Create Quote" %></b>
   <h5 class "cancel"><%= link_to "Cancel", quotes_path%></h5>
 
