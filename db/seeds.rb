@@ -9,7 +9,7 @@
 User.destroy_all
 Contribution.destroy_all
 Quote.destroy_all
-Book.destroy_all
+Source.destroy_all
 Author.destroy_all
 Topic.destroy_all
 
@@ -29,8 +29,10 @@ end
 end
 
 10.times do
-  Book.create(
+  Source.create(
     title: Faker::Book.title,
+    source_type:"Book",
+    link: "No link",
     author_id: Author.all.ids.sample)
 end
 
@@ -38,7 +40,7 @@ end
   Quote.create(
     content: Faker::GreekPhilosophers.quote,
     topic_id: Topic.all.ids.sample,
-    book_id: Book.all.ids.sample)
+    source_id: Source.all.ids.sample)
 end
 
 10.times do

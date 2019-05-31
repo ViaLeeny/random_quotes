@@ -1,0 +1,25 @@
+<h1>New Quotes</h1>
+
+
+<b><%= form_tag "/quotes" do %>
+  Quote: <%= text_field_tag "quote" %><br>
+  Author: <%= text_field_tag "author"%><br>
+  Source Type: <%= select_tag "source_type", options_for_select(@source_types) %><br>
+  Source Title: <%= text_field_tag "source"%><br>
+  Link (optional): <%= text_field_tag "link"%><br>
+  Topic: <%= text_field_tag "topic" %><br>
+  <%= hidden_field_tag :user_id , @user_id %>
+  <%= submit_tag "Create Quote" %></b>
+  <h5 class "cancel"><%= link_to "Cancel", quotes_path%></h5>
+
+<% end %>
+
+<%# <%= form_for @quote do |f| %>
+<%#<%= f.label "Quote" %>
+<%#<%= f.text_field :content %><br>
+<%#<%= f.label :source_id %>
+<%#<%= f.collection_select :source_id, Source.all, :id, :title %><br>
+<%#<%= f.label :topic_id %>
+<%#<%= f.collection_select :topic_id, Topic.all, :id, :name %><br>
+<%#<%= f.submit %>
+<%#<% end %>

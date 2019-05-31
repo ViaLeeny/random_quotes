@@ -1,0 +1,15 @@
+<h1>Top Authors</h1>
+<div class = "authors">
+<% @top_three.each do |author| %>
+  <h3> <%= link_to author.name, author_path(author) %></h3>
+<% end %>
+</div>
+<br> <br>
+
+<h1>Authors</h1>
+
+<div class = "authors">
+<% @authors.each do |author| %>
+  <h3> <%= link_to author.name, author_path(author) %></h3>
+<% end %>
+</div>

@@ -1,0 +1,14 @@
+<h1>New Source</h1>
+
+
+<%= form_for @source do |f| %>
+<%= f.label "Source" %>
+<%= f.text_field :source_type %><br>
+<%= f.label "Title" %>
+<%= f.text_field :title %><br>
+<%= f.label "Author" %>
+<%= f.collection_select :author_id, Author.all, :id, :name %><br>
+<%= f.label "Link (optional)" %>
+<%= f.text_field :link %><br>
+<%= f.submit %>
+<% end %>
