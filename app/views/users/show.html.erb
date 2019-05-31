@@ -1,5 +1,35 @@
-<br><br><br><h1>WELCOME <%=@user.first_name.upcase %>!</h1> <br><br><br>
+<br><br><br>
+<h1>WELCOME <%=@user.first_name.upcase %>!</h1>
+
 <center>
- <%= link_to "Add a quote", new_quote_path %> |
-  <%= link_to "See your contributions", quotes_path %>
+<div class="all">
+  <% if @user.contributions.size > 0 %>
+
+    <% @user.contributions.each do |contribution| %>
+<div class="quotes">
+
+    <%= contribution.quote.content %><br>
+    From <%= link_to contribution.quote.source.title, source_path(contribution.quote.source) %><br><br>
+    <div class = "buttons"><%= form_tag edit_quote_path(contribution.quote), method: "get" do %>
+    <%= submit_tag "Edit quote" %>
+    <% end %>
+
+    <%= form_tag quote_path(contribution.quote), method: "delete" do %>
+    <%= submit_tag "Delete quote" %>
+    <% end %>
+</div>
+</div>
+
+  <% end %>
+  <% end %>
+  </div>
+
+  <%= link_to "See all quotes", quotes_path %> |
+  <%= link_to "Add a quote", new_quote_path %>
+
+
+<br><br><br><br><br><br><br><br><br>
+  <%= form_tag user_path(@user), method: "delete" do %>
+    <%= submit_tag "Delete Account" %>
+  <% end %>
 </center>

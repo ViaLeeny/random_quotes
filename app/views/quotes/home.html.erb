@@ -1,6 +1,11 @@
-<br><br><br><br><h1>WELCOME TO THE QUOTES APP</h1> <br><br><br>
+<br><br><center> <%= image_tag("logo/cooltext325985840748838.jpg") %></center>
+<center><h1>Your daily dose of inspiring quotes</h1></center><br><br>
 <center>
- <%= link_to "Login", login_path %> |
-  <%= link_to "Signup", new_user_path %>
+ <% if logged_in? %>
+   <%= link_to "See all quotes", quotes_path %> |
+   <%= link_to "Add a quote", new_quote_path %>
+ <% else %>
+   <%= link_to "Login", login_path %> |
+   <%= link_to "Signup", new_user_path %>
+ <% end %>
 </center>
-``

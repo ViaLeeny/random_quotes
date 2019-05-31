@@ -6,8 +6,9 @@
   Author: <%= text_field_tag "author"%><br>
   Source Type: <%= select_tag "source_type", options_for_select(@source_types) %><br>
   Source Title: <%= text_field_tag "source"%><br>
-  Link: <%= text_field_tag "link"%><br>
+  Link (optional): <%= text_field_tag "link"%><br>
   Topic: <%= text_field_tag "topic" %><br>
+  <%= hidden_field_tag :user_id , @user_id %>
   <%= submit_tag "Create Quote" %></b>
   <h5 class "cancel"><%= link_to "Cancel", quotes_path%></h5>
 

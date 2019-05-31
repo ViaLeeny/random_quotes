@@ -1,6 +1,9 @@
 class QuotesController < ApplicationController
-
+layout false
+layout 'application', :except => :home
+layout 'home', :only => :home
 before_action :find_quote, only: [:edit, :show, :update, :destroy]
+before_action :authorized?, only: [:new, :create, :edit, :update, :delete]
 
   def index
     @quotes = Quote.all
@@ -12,18 +15,19 @@ before_action :find_quote, only: [:edit, :show, :update, :destroy]
   def new
     @quote = Quote.new
     @source_types = available_sources
+    @user_id = session[:user_id]
   end
 
   def create
+    @user_id = session[:user_id]
     author = Author.find_or_create_by(name: params[:author])
     source = Source.find_or_create_by(title: params[:source], link: params[:link], source_type: params[:source_type], author_id: author.id)
     topic = Topic.find_or_create_by(name: params[:topic])
-    @quote = Quote.new(content: params[:quote], topic_id: topic.id, source_id: source.id)
-
-    if @quote.valid?
+    @quote = Quote.create(content: params[:quote], topic_id: topic.id, source_id: source.id)
+    @contribution = Contribution.create(user_id: @user_id, quote_id: @quote.id)
+    if @contribution.valid?
       @quote.save
       redirect_to quote_path(@quote)
-
     else
       flash[:errors] = @quote.errors.full_messages
       redirect_to new_quote_path

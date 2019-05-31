@@ -5,14 +5,9 @@
 <% @quotes.each do |quote| %>
 
 <div class = "quotes">
-  <h2> <%=  quote.content %> </h2>
-  <p> <%= link_to "-" + quote.source.author.name, author_path(quote.source.author) %>
-      <div class = "buttons"><%= form_tag edit_quote_path(quote), method: "get" do %>
-        <%= submit_tag "Edit quote" %>
-       <% end %>
-     <%= form_tag quote_path(quote), method: "delete" do %>
-       <%= submit_tag "Delete quote" %>
-      <% end %></div></p>
+<h2> <%=  quote.content %> </h2>
+<p> <%= link_to "-" + quote.source.author.name, author_path(quote.source.author) %></p>
+<p> <%= link_to quote.topic.name, topic_path(quote.topic) %></p>
 </div>
 <% end %>
 
